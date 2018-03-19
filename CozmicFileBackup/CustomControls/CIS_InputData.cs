@@ -14,8 +14,12 @@ namespace CozmicFileBackup.CustomControls
     public partial class CIS_InputData : DevExpress.XtraEditors.XtraUserControl
     {
         public object TextValue => this.Text.EditValue;
+        public string TextStringValue => this.Text.Text;
+        public string CaptionValue => this.Caption.Text;
 
-        public object CaptionValue => this.Caption.Text;
+        public Control TextControl => this.Text;
+
+        public Control CaptionControl => this.Caption;
 
         public CIS_InputData()
         {

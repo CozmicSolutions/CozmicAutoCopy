@@ -48,6 +48,8 @@
             this.Text.Location = new System.Drawing.Point(2, 2);
             this.Text.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Text.Name = "Text";
+            this.Text.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.Text.Properties.Appearance.Options.UseFont = true;
             this.Text.Properties.AutoHeight = false;
             this.Text.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.Text.Size = new System.Drawing.Size(253, 17);
@@ -55,6 +57,8 @@
             // 
             // Caption
             // 
+            this.Caption.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Caption.Appearance.Options.UseFont = true;
             this.Caption.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.Caption.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.Caption.Dock = System.Windows.Forms.DockStyle.Fill;

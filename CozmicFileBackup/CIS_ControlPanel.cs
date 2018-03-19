@@ -18,18 +18,23 @@ namespace CozmicFileBackup
         public CIS_ControlPanel()
         {
             InitializeComponent();
+            ShowLogin();
         }
 
         private void barButtonLogin_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var Login_Form = new CIS_Login_Form();
-            
-                this.AddControlToMainPanel(Login_Form);
-                Login_Form.Show();
+           
             
         }
-      
 
+        void ShowLogin()
+        {
+            var Login_Form = new CIS_Login_Form();
+            if (Login_Form.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
+        }
         public Control AddControlToMainPanel(Control sender)
         {
             foreach (Control ctl in this.MainPanel.Controls)

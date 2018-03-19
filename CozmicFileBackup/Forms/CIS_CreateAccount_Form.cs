@@ -11,9 +11,9 @@ using DevExpress.XtraEditors;
 
 namespace CozmicFileBackup.Forms
 {
-    public partial class CIS_Login_Form : XtraForm
+    public partial class CIS_CreateAccount_Form : XtraForm
     {
-        public CIS_Login_Form()
+        public CIS_CreateAccount_Form()
         {
             InitializeComponent();
             this.SetControlUI();

@@ -65,8 +65,20 @@
     <Compile Include="CustomControls\CIS_InputData.Designer.cs">
       <DependentUpon>CIS_InputData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CIS_Base_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CIS_Base_Form.Designer.cs">
+      <DependentUpon>CIS_Base_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CIS_CreateAccount_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CIS_CreateAccount_Form.Designer.cs">
+      <DependentUpon>CIS_CreateAccount_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CIS_Login_Form.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\CIS_Login_Form.Designer.cs">
       <DependentUpon>CIS_Login_Form.cs</DependentUpon>
@@ -78,6 +90,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CIS_InputData.resx">
       <DependentUpon>CIS_InputData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CIS_Base_Form.resx">
+      <DependentUpon>CIS_Base_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CIS_CreateAccount_Form.resx">
+      <DependentUpon>CIS_CreateAccount_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CIS_Login_Form.resx">
       <DependentUpon>CIS_Login_Form.cs</DependentUpon>

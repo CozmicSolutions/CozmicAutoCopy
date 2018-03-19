@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CIS_ControlPanel));
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barButtonLogin = new DevExpress.XtraBars.BarButtonItem();
@@ -40,26 +40,27 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.MainPanel = new DevExpress.XtraEditors.PanelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainPanel)).BeginInit();
             this.SuspendLayout();
             // 
-            // barManager1
+            // barManager
             // 
-            this.barManager1.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
+            this.barManager.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
             this.bar1,
             this.bar2,
             this.bar3});
-            this.barManager1.DockControls.Add(this.barDockControlTop);
-            this.barManager1.DockControls.Add(this.barDockControlBottom);
-            this.barManager1.DockControls.Add(this.barDockControlLeft);
-            this.barManager1.DockControls.Add(this.barDockControlRight);
-            this.barManager1.Form = this;
-            this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.barManager.DockControls.Add(this.barDockControlTop);
+            this.barManager.DockControls.Add(this.barDockControlBottom);
+            this.barManager.DockControls.Add(this.barDockControlLeft);
+            this.barManager.DockControls.Add(this.barDockControlRight);
+            this.barManager.Form = this;
+            this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.barButtonLogin});
-            this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 1;
-            this.barManager1.StatusBar = this.bar3;
+            this.barManager.MainMenu = this.bar2;
+            this.barManager.MaxItemId = 1;
+            this.barManager.StatusBar = this.bar3;
             // 
             // bar1
             // 
@@ -114,41 +115,45 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1015, 27);
+            this.barDockControlTop.Manager = this.barManager;
+            this.barDockControlTop.Size = new System.Drawing.Size(1015, 25);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 538);
-            this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1015, 22);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 539);
+            this.barDockControlBottom.Manager = this.barManager;
+            this.barDockControlBottom.Size = new System.Drawing.Size(1015, 21);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 27);
-            this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(58, 511);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 25);
+            this.barDockControlLeft.Manager = this.barManager;
+            this.barDockControlLeft.Size = new System.Drawing.Size(60, 514);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1015, 27);
-            this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 511);
+            this.barDockControlRight.Location = new System.Drawing.Point(1015, 25);
+            this.barDockControlRight.Manager = this.barManager;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 514);
             // 
             // MainPanel
             // 
             this.MainPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainPanel.Location = new System.Drawing.Point(58, 27);
+            this.MainPanel.Location = new System.Drawing.Point(60, 25);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(957, 511);
+            this.MainPanel.Size = new System.Drawing.Size(955, 514);
             this.MainPanel.TabIndex = 4;
+            // 
+            // defaultLookAndFeel1
+            // 
+            this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2010 Blue";
             // 
             // CIS_ControlPanel
             // 
@@ -162,7 +167,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "CIS_ControlPanel";
             this.Text = "CIS_ControlPanel";
-            ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainPanel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -171,7 +176,7 @@
 
         #endregion
 
-        private DevExpress.XtraBars.BarManager barManager1;
+        private DevExpress.XtraBars.BarManager barManager;
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.Bar bar2;
         private DevExpress.XtraBars.Bar bar3;
@@ -181,5 +186,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarButtonItem barButtonLogin;
         private DevExpress.XtraEditors.PanelControl MainPanel;
+        private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
     }
 }
