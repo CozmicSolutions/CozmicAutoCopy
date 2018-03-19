@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozmicAutoCopyControlPanel", "CozmicAutoCopyControlPanel\CozmicAutoCopyControlPanel.csproj", "{23B10B8A-9FA1-4FA3-976A-A0EA759D55A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozmicAutoCopyService", "CozmicAutoCopyService\CozmicAutoCopyService.csproj", "{01622D32-2EEA-44E5-98FD-4537D38206AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozmicXmlSettings", "CozmicXmlSettings\CozmicXmlSettings.csproj", "{E10996B6-56C0-4016-8EAD-E057F0C57A7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozmicTaskFactory", "CozmicTaskFactory\CozmicTaskFactory.csproj", "{5E7510BA-1B7F-452B-BCB6-0E8DF8B2F020}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozmicFileBackup", "CozmicFileBackup\CozmicFileBackup.csproj", "{3B153A04-C400-4CA1-80D9-AB34BE9DFED6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23B10B8A-9FA1-4FA3-976A-A0EA759D55A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23B10B8A-9FA1-4FA3-976A-A0EA759D55A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23B10B8A-9FA1-4FA3-976A-A0EA759D55A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23B10B8A-9FA1-4FA3-976A-A0EA759D55A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01622D32-2EEA-44E5-98FD-4537D38206AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01622D32-2EEA-44E5-98FD-4537D38206AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01622D32-2EEA-44E5-98FD-4537D38206AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01622D32-2EEA-44E5-98FD-4537D38206AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E10996B6-56C0-4016-8EAD-E057F0C57A7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E10996B6-56C0-4016-8EAD-E057F0C57A7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E10996B6-56C0-4016-8EAD-E057F0C57A7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E10996B6-56C0-4016-8EAD-E057F0C57A7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E7510BA-1B7F-452B-BCB6-0E8DF8B2F020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E7510BA-1B7F-452B-BCB6-0E8DF8B2F020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E7510BA-1B7F-452B-BCB6-0E8DF8B2F020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E7510BA-1B7F-452B-BCB6-0E8DF8B2F020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B153A04-C400-4CA1-80D9-AB34BE9DFED6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B153A04-C400-4CA1-80D9-AB34BE9DFED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B153A04-C400-4CA1-80D9-AB34BE9DFED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B153A04-C400-4CA1-80D9-AB34BE9DFED6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
