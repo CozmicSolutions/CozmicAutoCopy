@@ -84,8 +84,7 @@
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(120, 37);
             this.btnAccept.TabIndex = 0;
-            this.btnAccept.Text = "Log in";
-          
+            this.btnAccept.Text = "Accept";
             // 
             // groupControlMain
             // 
@@ -120,11 +119,10 @@
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.PanelControl panelControlTop;
         private DevExpress.XtraEditors.PanelControl panelControlButtom;
-        private DevExpress.XtraEditors.GroupControl groupControlMain;
-        private DevExpress.XtraEditors.SimpleButton btnClose;
-        private DevExpress.XtraEditors.SimpleButton btnAccept;
+        protected DevExpress.XtraEditors.PanelControl panelControlTop;
+        protected DevExpress.XtraEditors.GroupControl groupControlMain;
+        public DevExpress.XtraEditors.SimpleButton btnClose;
+        public DevExpress.XtraEditors.SimpleButton btnAccept;
     }
 }

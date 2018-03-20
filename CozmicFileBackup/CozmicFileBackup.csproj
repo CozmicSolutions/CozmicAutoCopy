@@ -59,6 +59,12 @@
     <Compile Include="CIS_ControlPanel.Designer.cs">
       <DependentUpon>CIS_ControlPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\CIS_LogData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\CIS_LogData.Designer.cs">
+      <DependentUpon>CIS_LogData.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\CIS_InputData.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CIS_ControlPanel.resx">
       <DependentUpon>CIS_ControlPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\CIS_LogData.resx">
+      <DependentUpon>CIS_LogData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CIS_InputData.resx">
       <DependentUpon>CIS_InputData.cs</DependentUpon>

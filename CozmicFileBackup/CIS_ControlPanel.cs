@@ -13,6 +13,8 @@ namespace CozmicFileBackup
 {
     using CozmicFileBackup.Forms;
 
+    using DevExpress.XtraEditors;
+
     public partial class CIS_ControlPanel : DevExpress.XtraEditors.XtraForm
     {
         public CIS_ControlPanel()
@@ -23,9 +25,11 @@ namespace CozmicFileBackup
 
         private void barButtonLogin_ItemClick(object sender, ItemClickEventArgs e)
         {
-           
-            
+            var form = new CIS_CreateAccount_Form();
+            this.AddControlToMainPanel(form);
+            form.ShowDialog();
         }
+
 
         void ShowLogin()
         {
@@ -41,6 +45,7 @@ namespace CozmicFileBackup
             {
                 this.MainPanel.Controls.Remove(ctl);
             }
+            ((XtraForm)sender).TopLevel = false;
             this.MainPanel.Controls.Add(sender);
             sender.Dock=DockStyle.Fill;
             return sender;

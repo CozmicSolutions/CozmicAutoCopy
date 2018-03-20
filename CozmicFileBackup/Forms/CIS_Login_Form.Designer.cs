@@ -48,7 +48,7 @@
             this.panelControlTop.ContentImage = ((System.Drawing.Image)(resources.GetObject("panelControlTop.ContentImage")));
             this.panelControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControlTop.Location = new System.Drawing.Point(0, 0);
-            this.panelControlTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelControlTop.Margin = new System.Windows.Forms.Padding(4);
             this.panelControlTop.Name = "panelControlTop";
             this.panelControlTop.Size = new System.Drawing.Size(400, 49);
             this.panelControlTop.TabIndex = 0;
@@ -59,7 +59,7 @@
             this.panelControlButtom.Controls.Add(this.btnLogin);
             this.panelControlButtom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControlButtom.Location = new System.Drawing.Point(0, 172);
-            this.panelControlButtom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelControlButtom.Margin = new System.Windows.Forms.Padding(4);
             this.panelControlButtom.Name = "panelControlButtom";
             this.panelControlButtom.Size = new System.Drawing.Size(400, 41);
             this.panelControlButtom.TabIndex = 1;
@@ -71,7 +71,7 @@
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnClose.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.ImageOptions.Image")));
             this.btnClose.Location = new System.Drawing.Point(2, 2);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(120, 37);
             this.btnClose.TabIndex = 1;
@@ -84,7 +84,7 @@
             this.btnLogin.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnLogin.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.ImageOptions.Image")));
             this.btnLogin.Location = new System.Drawing.Point(278, 2);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(120, 37);
             this.btnLogin.TabIndex = 0;
@@ -97,7 +97,7 @@
             this.groupControlMain.Controls.Add(this.input_Username);
             this.groupControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControlMain.Location = new System.Drawing.Point(0, 49);
-            this.groupControlMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupControlMain.Margin = new System.Windows.Forms.Padding(4);
             this.groupControlMain.Name = "groupControlMain";
             this.groupControlMain.Size = new System.Drawing.Size(400, 123);
             this.groupControlMain.TabIndex = 2;
@@ -135,7 +135,7 @@
             this.Controls.Add(this.panelControlTop);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CIS_Login_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.panelControlTop)).EndInit();
