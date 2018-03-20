@@ -25,12 +25,16 @@ namespace CozmicFileBackup
 
         private void barButtonLogin_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var form = new CIS_CreateAccount_Form();
-            this.AddControlToMainPanel(form);
-            form.ShowDialog();
+            this.ShowCreateAccount();
+
+
         }
 
-
+        void ShowCreateAccount()
+        {
+            var form = new CIS_CreateAccount_Form();
+            this.AddControlToMainPanel(form , true);
+        }
         void ShowLogin()
         {
             var Login_Form = new CIS_Login_Form();
@@ -39,7 +43,7 @@ namespace CozmicFileBackup
                 
             }
         }
-        public Control AddControlToMainPanel(Control sender)
+        public void AddControlToMainPanel(Control sender , bool show = false)
         {
             foreach (Control ctl in this.MainPanel.Controls)
             {
@@ -48,7 +52,9 @@ namespace CozmicFileBackup
             ((XtraForm)sender).TopLevel = false;
             this.MainPanel.Controls.Add(sender);
             sender.Dock=DockStyle.Fill;
-            return sender;
+            if(show)
+                ((XtraForm)sender).Show();
+            
         }
     }
 }

@@ -25,6 +25,7 @@ namespace CozmicFileBackup.Forms
             if (string.IsNullOrEmpty(this.input_Username.TextStringValue))
             {
                 this.dxErrorProvider.SetError(this.input_Username,"Invalid Entry",ErrorType.Warning);
+                this.dxErrorProvider.SetError(this.input_Username.CaptionControl, "Invalid Entry", ErrorType.Warning);
             }
         }
 
