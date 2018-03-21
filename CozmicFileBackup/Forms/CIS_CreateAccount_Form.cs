@@ -11,6 +11,8 @@ using DevExpress.XtraEditors;
 
 namespace CozmicFileBackup.Forms
 {
+    using CozmicBackupDataAccess;
+
     using CozmicFileBackup.CustomControls;
 
     using DevExpress.XtraEditors.DXErrorProvider;
@@ -45,8 +47,7 @@ namespace CozmicFileBackup.Forms
         /// <returns></returns>
         bool ValidateControls()
         {
-            return this.input_Username.IsValid() && this.input_Password.IsValid() && this.input_Password_Retry.IsValid()
-                   && this.input_Key.IsValid();
+            return this.input_Username.IsValid() && this.input_Password.IsValid() && this.input_Password_Retry.IsValid();
         }
 
         /// <summary>
@@ -56,10 +57,60 @@ namespace CozmicFileBackup.Forms
         /// <param name="e"></param>
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            if (this.ValidateControls() && this.CheckPassword())
+            var repo = new UserAccountRepository();
+            if (this.ValidateControls() && this.CheckPassword() && this.CheckUsername() && this.CheckKey())
             {
-                
+               
+              var account =  repo.RegisterAccount(
+                    this.input_Username.TextStringValue,
+                    this.input_Password.TextStringValue,
+                    new Guid(this.input_Key.TextStringValue));
+                if(account!=null)
+                this.btnAccept.Enabled =this.input_Username.Enabled = this.input_Password.Enabled =
+                                                  this.input_Password_Retry.Enabled = this.input_Key.Enabled = false;
+
             }
+        }
+
+        /// <summary>
+        /// CheckPassword
+        /// </summary>
+        /// <returns></returns>
+        bool CheckUsername()
+        {
+            var repo = new UserAccountRepository();
+            if (!repo.IsUsernameValid(this.input_Username.TextStringValue))
+            {
+                this.input_Key.SetValidation(DataValidation.Custom);
+                this.input_Key.IsValid("Username already exist.", ErrorType.Critical);
+                return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// CheckPassword
+        /// </summary>
+        /// <returns></returns>
+        bool CheckKey()
+        {
+            var repo = new UserAccountRepository();
+            var system = new CIS_System();
+            try
+            {
+                if (!repo.IsKeyValid(new Guid(this.input_Key.TextStringValue), out system))
+                {
+                    this.input_Key.SetValidation(DataValidation.Custom);
+                    this.input_Key.IsValid("Invalid Key.", ErrorType.Critical);
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+       
+            return true;
         }
 
         /// <summary>

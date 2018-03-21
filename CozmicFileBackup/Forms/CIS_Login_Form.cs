@@ -11,8 +11,11 @@ using DevExpress.XtraEditors;
 
 namespace CozmicFileBackup.Forms
 {
+    using CozmicBackupDataAccess;
+
     public partial class CIS_Login_Form : XtraForm
     {
+        public CIS_UserAccount LoginAccount { set; get; }
         public CIS_Login_Form()
         {
             InitializeComponent();
@@ -29,15 +32,37 @@ namespace CozmicFileBackup.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            var accountRepo = new UserAccountRepository();
+
+            var loginAccount = new CIS_UserAccount();
+
+            bool IsValid = false;
+
+            if (accountRepo.IsCredentialValid(
+                this.input_Username.TextStringValue,
+                this.input_Password.TextStringValue,
+                out loginAccount))
+            {
+                IsValid = true;
+                this.LoginAccount = loginAccount;
+            }
             if (this.input_Username.TextStringValue.Equals("Demo", StringComparison.CurrentCultureIgnoreCase)
                 && this.input_Password.TextStringValue.Equals("Pass", StringComparison.CurrentCultureIgnoreCase))
             {
-                this.DialogResult = DialogResult.OK;
+                IsValid = true;
+                
+            }
+            if (!IsValid)
+            {
+                MessageBox.Show(@"Invalid Username/Password.");
             }
             else
-            {
-                MessageBox.Show("Invalid Username/Password.");
-            }
+                this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

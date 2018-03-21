@@ -76,6 +76,7 @@
             this.btnClose.Size = new System.Drawing.Size(120, 37);
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnLogin
             // 
@@ -112,6 +113,7 @@
             this.input_Password.Name = "input_Password";
             this.input_Password.Size = new System.Drawing.Size(384, 31);
             this.input_Password.TabIndex = 1;
+            this.input_Password.Validation = CozmicFileBackup.CustomControls.DataValidation.None;
             // 
             // input_Username
             // 
@@ -122,6 +124,7 @@
             this.input_Username.Name = "input_Username";
             this.input_Username.Size = new System.Drawing.Size(384, 31);
             this.input_Username.TabIndex = 0;
+            this.input_Username.Validation = CozmicFileBackup.CustomControls.DataValidation.None;
             // 
             // CIS_Login_Form
             // 
