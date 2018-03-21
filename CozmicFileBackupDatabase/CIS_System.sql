@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[CIS_System]
+(
+	[SID] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT newid(), 
+    [KeyValue] UNIQUEIDENTIFIER NULL, 
+    [KeyType] INT NULL, 
+    [StartDate] DATETIME NULL, 
+    [EndDate] DATETIME NULL
+)

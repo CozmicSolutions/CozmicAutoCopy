@@ -28,25 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Text = new DevExpress.XtraEditors.TextEdit();
             this.Caption = new DevExpress.XtraEditors.LabelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControlText = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.dxErrorProvider = new DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Text.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlText)).BeginInit();
             this.panelControlText.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // Text
             // 
             this.Text.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Text.Location = new System.Drawing.Point(2, 2);
-            this.Text.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Text.Margin = new System.Windows.Forms.Padding(4);
             this.Text.Name = "Text";
             this.Text.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.Text.Properties.Appearance.Options.UseFont = true;
@@ -63,7 +66,7 @@
             this.Caption.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.Caption.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Caption.Location = new System.Drawing.Point(2, 2);
-            this.Caption.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Caption.Margin = new System.Windows.Forms.Padding(4);
             this.Caption.Name = "Caption";
             this.Caption.Size = new System.Drawing.Size(128, 17);
             this.Caption.TabIndex = 1;
@@ -75,20 +78,10 @@
             this.panelControl1.Controls.Add(this.panelControl2);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(393, 25);
             this.panelControl1.TabIndex = 2;
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.Caption);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl2.Location = new System.Drawing.Point(2, 2);
-            this.panelControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(132, 21);
-            this.panelControl2.TabIndex = 0;
             // 
             // panelControlText
             // 
@@ -99,6 +92,20 @@
             this.panelControlText.Size = new System.Drawing.Size(257, 21);
             this.panelControlText.TabIndex = 1;
             // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.Caption);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelControl2.Location = new System.Drawing.Point(2, 2);
+            this.panelControl2.Margin = new System.Windows.Forms.Padding(4);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(132, 21);
+            this.panelControl2.TabIndex = 0;
+            // 
+            // dxErrorProvider
+            // 
+            this.dxErrorProvider.ContainerControl = this;
+            // 
             // CIS_InputData
             // 
             this.Appearance.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -106,16 +113,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "CIS_InputData";
             this.Size = new System.Drawing.Size(393, 25);
             ((System.ComponentModel.ISupportInitialize)(this.Text.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControlText)).EndInit();
             this.panelControlText.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dxErrorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -127,5 +135,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControlText;
         private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
     }
 }

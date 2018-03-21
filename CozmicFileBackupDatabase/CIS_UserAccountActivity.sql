@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[CIS_UserAccountActivity]
+(
+	[UAActivityID] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT newid(), 
+    [UserAccountID] UNIQUEIDENTIFIER NOT NULL, 
+    [LoginDate] DATETIME NOT NULL DEFAULT GetDate(), 
+    [LogoutDate] DATETIME NULL
+)

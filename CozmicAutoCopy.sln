@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozmicTaskFactory", "Cozmic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozmicFileBackup", "CozmicFileBackup\CozmicFileBackup.csproj", "{3B153A04-C400-4CA1-80D9-AB34BE9DFED6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozmicBackupDataAccess", "CozmicBackupDataAccess\CozmicBackupDataAccess.csproj", "{39EE454F-2622-4A4E-9C72-8863A8DA778D}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CozmicFileBackupDatabase", "CozmicFileBackupDatabase\CozmicFileBackupDatabase.sqlproj", "{575507EF-2A1C-47DC-AFFC-C799CD141270}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,16 @@ Global
 		{3B153A04-C400-4CA1-80D9-AB34BE9DFED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B153A04-C400-4CA1-80D9-AB34BE9DFED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B153A04-C400-4CA1-80D9-AB34BE9DFED6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39EE454F-2622-4A4E-9C72-8863A8DA778D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39EE454F-2622-4A4E-9C72-8863A8DA778D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39EE454F-2622-4A4E-9C72-8863A8DA778D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39EE454F-2622-4A4E-9C72-8863A8DA778D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{575507EF-2A1C-47DC-AFFC-C799CD141270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{575507EF-2A1C-47DC-AFFC-C799CD141270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{575507EF-2A1C-47DC-AFFC-C799CD141270}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{575507EF-2A1C-47DC-AFFC-C799CD141270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{575507EF-2A1C-47DC-AFFC-C799CD141270}.Release|Any CPU.Build.0 = Release|Any CPU
+		{575507EF-2A1C-47DC-AFFC-C799CD141270}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
