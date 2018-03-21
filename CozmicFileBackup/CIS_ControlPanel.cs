@@ -22,8 +22,8 @@ namespace CozmicFileBackup
         private CIS_UserAccount LoginAccount = null;
         public CIS_ControlPanel()
         {
-            InitializeComponent();
-            ShowLogin();
+            this.InitializeComponent();
+            this.ShowLogin();
         }
 
         /// <summary>
@@ -33,9 +33,19 @@ namespace CozmicFileBackup
         /// <param name="e"></param>
         private void barButtonLogin_ItemClick(object sender, ItemClickEventArgs e)
         {
-            this.ShowCreateAccount();
+         
 
 
+        }
+
+        /// <summary>
+        /// ShowCreateAccount
+        /// </summary>
+        void ShowAccountList()
+        {
+            var form = new CIS_AccountList_Form();
+            this.AddControlToMainPanel(form, true);
+            form.SetData<CIS_UserAccount>(this.LoginAccount);
         }
 
         /// <summary>
@@ -76,6 +86,16 @@ namespace CozmicFileBackup
             if(show)
                 ((XtraForm)sender).Show();
             
+        }
+
+        private void barButtonItemNewAccount_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.ShowCreateAccount();
+        }
+
+        private void barButtonItemAccountList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.ShowAccountList();
         }
     }
 }

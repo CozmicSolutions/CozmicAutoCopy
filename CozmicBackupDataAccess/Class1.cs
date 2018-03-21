@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CozmicBackupDataAccess
+﻿namespace CozmicBackupDataAccess
 {
     //public class UserAccount
     //{
@@ -17,13 +11,11 @@ namespace CozmicBackupDataAccess
 
     //}
 
- 
-
     public enum AccountMode
     {
-        None = 0 ,
+        None = 0,
         Active = 1,
-        InActive = 2, 
+        InActive = 2,
         Demo = 3
     }
 }
