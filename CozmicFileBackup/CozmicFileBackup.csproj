@@ -71,6 +71,12 @@
     <Compile Include="CustomControls\CIS_DataList.Designer.cs">
       <DependentUpon>CIS_DataList.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\CIS_BrowsePath.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\CIS_BrowsePath.Designer.cs">
+      <DependentUpon>CIS_BrowsePath.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomControls\CIS_LogData.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -95,6 +101,12 @@
     <Compile Include="Forms\CIS_AccountList_Form.Designer.cs">
       <DependentUpon>CIS_AccountList_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CIS_AddCopyTask_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CIS_AddCopyTask_Form.Designer.cs">
+      <DependentUpon>CIS_AddCopyTask_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CIS_CreateAccount_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +127,9 @@
     <EmbeddedResource Include="CustomControls\CIS_DataList.resx">
       <DependentUpon>CIS_DataList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\CIS_BrowsePath.resx">
+      <DependentUpon>CIS_BrowsePath.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CIS_LogData.resx">
       <DependentUpon>CIS_LogData.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CIS_AccountList_Form.resx">
       <DependentUpon>CIS_AccountList_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CIS_AddCopyTask_Form.resx">
+      <DependentUpon>CIS_AddCopyTask_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CIS_CreateAccount_Form.resx">
       <DependentUpon>CIS_CreateAccount_Form.cs</DependentUpon>

@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[CIS_FileXTask]
+(   
+    [FXTID]  UNIQUEIDENTIFIER  NOT NULL  PRIMARY KEY DEFAULT newid(), 
+    [FBPathID] UNIQUEIDENTIFIER  NULL ,
+    [FBTaskID] UNIQUEIDENTIFIER NULL ,
+    [DestinationPath] NVARCHAR(255) NULL ,
+    [ArchivePath] NVARCHAR(255) NULL ,
+    [Status] INT NOT NULL DEFAULT(0),
+)

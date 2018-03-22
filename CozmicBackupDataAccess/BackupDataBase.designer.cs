@@ -39,6 +39,15 @@ namespace CozmicBackupDataAccess
     partial void InsertCIS_UserAccount(CIS_UserAccount instance);
     partial void UpdateCIS_UserAccount(CIS_UserAccount instance);
     partial void DeleteCIS_UserAccount(CIS_UserAccount instance);
+    partial void InsertCIS_FileXTask(CIS_FileXTask instance);
+    partial void UpdateCIS_FileXTask(CIS_FileXTask instance);
+    partial void DeleteCIS_FileXTask(CIS_FileXTask instance);
+    partial void InsertCIS_FileBackupTask(CIS_FileBackupTask instance);
+    partial void UpdateCIS_FileBackupTask(CIS_FileBackupTask instance);
+    partial void DeleteCIS_FileBackupTask(CIS_FileBackupTask instance);
+    partial void InsertCIS_FileBackupPath(CIS_FileBackupPath instance);
+    partial void UpdateCIS_FileBackupPath(CIS_FileBackupPath instance);
+    partial void DeleteCIS_FileBackupPath(CIS_FileBackupPath instance);
     #endregion
 		
 		public BackupDataBaseDataContext() : 
@@ -94,6 +103,30 @@ namespace CozmicBackupDataAccess
 				return this.GetTable<CIS_UserAccount>();
 			}
 		}
+		
+		public System.Data.Linq.Table<CIS_FileXTask> CIS_FileXTasks
+		{
+			get
+			{
+				return this.GetTable<CIS_FileXTask>();
+			}
+		}
+		
+		public System.Data.Linq.Table<CIS_FileBackupTask> CIS_FileBackupTasks
+		{
+			get
+			{
+				return this.GetTable<CIS_FileBackupTask>();
+			}
+		}
+		
+		public System.Data.Linq.Table<CIS_FileBackupPath> CIS_FileBackupPaths
+		{
+			get
+			{
+				return this.GetTable<CIS_FileBackupPath>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CIS_System")]
@@ -111,6 +144,8 @@ namespace CozmicBackupDataAccess
 		private System.Nullable<System.DateTime> _StartDate;
 		
 		private System.Nullable<System.DateTime> _EndDate;
+		
+		private EntitySet<CIS_UserAccount> _CIS_UserAccounts;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -130,6 +165,7 @@ namespace CozmicBackupDataAccess
 		
 		public CIS_System()
 		{
+			this._CIS_UserAccounts = new EntitySet<CIS_UserAccount>(new Action<CIS_UserAccount>(this.attach_CIS_UserAccounts), new Action<CIS_UserAccount>(this.detach_CIS_UserAccounts));
 			OnCreated();
 		}
 		
@@ -233,6 +269,19 @@ namespace CozmicBackupDataAccess
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CIS_System_CIS_UserAccount", Storage="_CIS_UserAccounts", ThisKey="SID", OtherKey="SID")]
+		public EntitySet<CIS_UserAccount> CIS_UserAccounts
+		{
+			get
+			{
+				return this._CIS_UserAccounts;
+			}
+			set
+			{
+				this._CIS_UserAccounts.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -252,6 +301,18 @@ namespace CozmicBackupDataAccess
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_CIS_UserAccounts(CIS_UserAccount entity)
+		{
+			this.SendPropertyChanging();
+			entity.CIS_System = this;
+		}
+		
+		private void detach_CIS_UserAccounts(CIS_UserAccount entity)
+		{
+			this.SendPropertyChanging();
+			entity.CIS_System = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CIS_UserAccountActivity")]
@@ -267,6 +328,8 @@ namespace CozmicBackupDataAccess
 		private System.DateTime _LoginDate;
 		
 		private System.Nullable<System.DateTime> _LogoutDate;
+		
+		private EntityRef<CIS_UserAccount> _CIS_UserAccount;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -284,6 +347,7 @@ namespace CozmicBackupDataAccess
 		
 		public CIS_UserAccountActivity()
 		{
+			this._CIS_UserAccount = default(EntityRef<CIS_UserAccount>);
 			OnCreated();
 		}
 		
@@ -318,6 +382,10 @@ namespace CozmicBackupDataAccess
 			{
 				if ((this._UserAccountID != value))
 				{
+					if (this._CIS_UserAccount.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnUserAccountIDChanging(value);
 					this.SendPropertyChanging();
 					this._UserAccountID = value;
@@ -367,6 +435,40 @@ namespace CozmicBackupDataAccess
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CIS_UserAccount_CIS_UserAccountActivity", Storage="_CIS_UserAccount", ThisKey="UserAccountID", OtherKey="UserAccountID", IsForeignKey=true)]
+		public CIS_UserAccount CIS_UserAccount
+		{
+			get
+			{
+				return this._CIS_UserAccount.Entity;
+			}
+			set
+			{
+				CIS_UserAccount previousValue = this._CIS_UserAccount.Entity;
+				if (((previousValue != value) 
+							|| (this._CIS_UserAccount.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CIS_UserAccount.Entity = null;
+						previousValue.CIS_UserAccountActivities.Remove(this);
+					}
+					this._CIS_UserAccount.Entity = value;
+					if ((value != null))
+					{
+						value.CIS_UserAccountActivities.Add(this);
+						this._UserAccountID = value.UserAccountID;
+					}
+					else
+					{
+						this._UserAccountID = default(System.Guid);
+					}
+					this.SendPropertyChanged("CIS_UserAccount");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -408,6 +510,10 @@ namespace CozmicBackupDataAccess
 		
 		private int _Status;
 		
+		private EntitySet<CIS_UserAccountActivity> _CIS_UserAccountActivities;
+		
+		private EntityRef<CIS_System> _CIS_System;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -430,6 +536,8 @@ namespace CozmicBackupDataAccess
 		
 		public CIS_UserAccount()
 		{
+			this._CIS_UserAccountActivities = new EntitySet<CIS_UserAccountActivity>(new Action<CIS_UserAccountActivity>(this.attach_CIS_UserAccountActivities), new Action<CIS_UserAccountActivity>(this.detach_CIS_UserAccountActivities));
+			this._CIS_System = default(EntityRef<CIS_System>);
 			OnCreated();
 		}
 		
@@ -464,6 +572,10 @@ namespace CozmicBackupDataAccess
 			{
 				if ((this._SID != value))
 				{
+					if (this._CIS_System.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnSIDChanging(value);
 					this.SendPropertyChanging();
 					this._SID = value;
@@ -573,6 +685,53 @@ namespace CozmicBackupDataAccess
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CIS_UserAccount_CIS_UserAccountActivity", Storage="_CIS_UserAccountActivities", ThisKey="UserAccountID", OtherKey="UserAccountID")]
+		public EntitySet<CIS_UserAccountActivity> CIS_UserAccountActivities
+		{
+			get
+			{
+				return this._CIS_UserAccountActivities;
+			}
+			set
+			{
+				this._CIS_UserAccountActivities.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CIS_System_CIS_UserAccount", Storage="_CIS_System", ThisKey="SID", OtherKey="SID", IsForeignKey=true)]
+		public CIS_System CIS_System
+		{
+			get
+			{
+				return this._CIS_System.Entity;
+			}
+			set
+			{
+				CIS_System previousValue = this._CIS_System.Entity;
+				if (((previousValue != value) 
+							|| (this._CIS_System.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CIS_System.Entity = null;
+						previousValue.CIS_UserAccounts.Remove(this);
+					}
+					this._CIS_System.Entity = value;
+					if ((value != null))
+					{
+						value.CIS_UserAccounts.Add(this);
+						this._SID = value.SID;
+					}
+					else
+					{
+						this._SID = default(System.Guid);
+					}
+					this.SendPropertyChanged("CIS_System");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -591,6 +750,750 @@ namespace CozmicBackupDataAccess
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_CIS_UserAccountActivities(CIS_UserAccountActivity entity)
+		{
+			this.SendPropertyChanging();
+			entity.CIS_UserAccount = this;
+		}
+		
+		private void detach_CIS_UserAccountActivities(CIS_UserAccountActivity entity)
+		{
+			this.SendPropertyChanging();
+			entity.CIS_UserAccount = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CIS_FileXTask")]
+	public partial class CIS_FileXTask : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _FXTID;
+		
+		private System.Nullable<System.Guid> _FBPathID;
+		
+		private System.Nullable<System.Guid> _FBTaskID;
+		
+		private string _DestinationPath;
+		
+		private string _ArchivePath;
+		
+		private int _Status;
+		
+		private EntityRef<CIS_FileBackupPath> _CIS_FileBackupPath;
+		
+		private EntityRef<CIS_FileBackupTask> _CIS_FileBackupTask;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnFXTIDChanging(System.Guid value);
+    partial void OnFXTIDChanged();
+    partial void OnFBPathIDChanging(System.Nullable<System.Guid> value);
+    partial void OnFBPathIDChanged();
+    partial void OnFBTaskIDChanging(System.Nullable<System.Guid> value);
+    partial void OnFBTaskIDChanged();
+    partial void OnDestinationPathChanging(string value);
+    partial void OnDestinationPathChanged();
+    partial void OnArchivePathChanging(string value);
+    partial void OnArchivePathChanged();
+    partial void OnStatusChanging(int value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public CIS_FileXTask()
+		{
+			this._CIS_FileBackupPath = default(EntityRef<CIS_FileBackupPath>);
+			this._CIS_FileBackupTask = default(EntityRef<CIS_FileBackupTask>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FXTID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid FXTID
+		{
+			get
+			{
+				return this._FXTID;
+			}
+			set
+			{
+				if ((this._FXTID != value))
+				{
+					this.OnFXTIDChanging(value);
+					this.SendPropertyChanging();
+					this._FXTID = value;
+					this.SendPropertyChanged("FXTID");
+					this.OnFXTIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FBPathID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> FBPathID
+		{
+			get
+			{
+				return this._FBPathID;
+			}
+			set
+			{
+				if ((this._FBPathID != value))
+				{
+					if (this._CIS_FileBackupPath.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFBPathIDChanging(value);
+					this.SendPropertyChanging();
+					this._FBPathID = value;
+					this.SendPropertyChanged("FBPathID");
+					this.OnFBPathIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FBTaskID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> FBTaskID
+		{
+			get
+			{
+				return this._FBTaskID;
+			}
+			set
+			{
+				if ((this._FBTaskID != value))
+				{
+					if (this._CIS_FileBackupTask.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFBTaskIDChanging(value);
+					this.SendPropertyChanging();
+					this._FBTaskID = value;
+					this.SendPropertyChanged("FBTaskID");
+					this.OnFBTaskIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DestinationPath", DbType="NVarChar(255)")]
+		public string DestinationPath
+		{
+			get
+			{
+				return this._DestinationPath;
+			}
+			set
+			{
+				if ((this._DestinationPath != value))
+				{
+					this.OnDestinationPathChanging(value);
+					this.SendPropertyChanging();
+					this._DestinationPath = value;
+					this.SendPropertyChanged("DestinationPath");
+					this.OnDestinationPathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArchivePath", DbType="NVarChar(255)")]
+		public string ArchivePath
+		{
+			get
+			{
+				return this._ArchivePath;
+			}
+			set
+			{
+				if ((this._ArchivePath != value))
+				{
+					this.OnArchivePathChanging(value);
+					this.SendPropertyChanging();
+					this._ArchivePath = value;
+					this.SendPropertyChanged("ArchivePath");
+					this.OnArchivePathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int NOT NULL")]
+		public int Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CIS_FileBackupPath_CIS_FileXTask", Storage="_CIS_FileBackupPath", ThisKey="FBPathID", OtherKey="FBPathID", IsForeignKey=true)]
+		public CIS_FileBackupPath CIS_FileBackupPath
+		{
+			get
+			{
+				return this._CIS_FileBackupPath.Entity;
+			}
+			set
+			{
+				CIS_FileBackupPath previousValue = this._CIS_FileBackupPath.Entity;
+				if (((previousValue != value) 
+							|| (this._CIS_FileBackupPath.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CIS_FileBackupPath.Entity = null;
+						previousValue.CIS_FileXTasks.Remove(this);
+					}
+					this._CIS_FileBackupPath.Entity = value;
+					if ((value != null))
+					{
+						value.CIS_FileXTasks.Add(this);
+						this._FBPathID = value.FBPathID;
+					}
+					else
+					{
+						this._FBPathID = default(Nullable<System.Guid>);
+					}
+					this.SendPropertyChanged("CIS_FileBackupPath");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CIS_FileBackupTask_CIS_FileXTask", Storage="_CIS_FileBackupTask", ThisKey="FBTaskID", OtherKey="FBTaskID", IsForeignKey=true)]
+		public CIS_FileBackupTask CIS_FileBackupTask
+		{
+			get
+			{
+				return this._CIS_FileBackupTask.Entity;
+			}
+			set
+			{
+				CIS_FileBackupTask previousValue = this._CIS_FileBackupTask.Entity;
+				if (((previousValue != value) 
+							|| (this._CIS_FileBackupTask.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CIS_FileBackupTask.Entity = null;
+						previousValue.CIS_FileXTasks.Remove(this);
+					}
+					this._CIS_FileBackupTask.Entity = value;
+					if ((value != null))
+					{
+						value.CIS_FileXTasks.Add(this);
+						this._FBTaskID = value.FBTaskID;
+					}
+					else
+					{
+						this._FBTaskID = default(Nullable<System.Guid>);
+					}
+					this.SendPropertyChanged("CIS_FileBackupTask");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CIS_FileBackupTask")]
+	public partial class CIS_FileBackupTask : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _FBTaskID;
+		
+		private System.Guid _UserAccountID;
+		
+		private System.DateTime _CreateDate;
+		
+		private System.Nullable<System.DateTime> _StartDate;
+		
+		private System.Nullable<System.DateTime> _StopDate;
+		
+		private int _RepatCount;
+		
+		private int _IntervalSec;
+		
+		private int _Status;
+		
+		private EntitySet<CIS_FileXTask> _CIS_FileXTasks;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnFBTaskIDChanging(System.Guid value);
+    partial void OnFBTaskIDChanged();
+    partial void OnUserAccountIDChanging(System.Guid value);
+    partial void OnUserAccountIDChanged();
+    partial void OnCreateDateChanging(System.DateTime value);
+    partial void OnCreateDateChanged();
+    partial void OnStartDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnStartDateChanged();
+    partial void OnStopDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnStopDateChanged();
+    partial void OnRepatCountChanging(int value);
+    partial void OnRepatCountChanged();
+    partial void OnIntervalSecChanging(int value);
+    partial void OnIntervalSecChanged();
+    partial void OnStatusChanging(int value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public CIS_FileBackupTask()
+		{
+			this._CIS_FileXTasks = new EntitySet<CIS_FileXTask>(new Action<CIS_FileXTask>(this.attach_CIS_FileXTasks), new Action<CIS_FileXTask>(this.detach_CIS_FileXTasks));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FBTaskID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid FBTaskID
+		{
+			get
+			{
+				return this._FBTaskID;
+			}
+			set
+			{
+				if ((this._FBTaskID != value))
+				{
+					this.OnFBTaskIDChanging(value);
+					this.SendPropertyChanging();
+					this._FBTaskID = value;
+					this.SendPropertyChanged("FBTaskID");
+					this.OnFBTaskIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserAccountID", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid UserAccountID
+		{
+			get
+			{
+				return this._UserAccountID;
+			}
+			set
+			{
+				if ((this._UserAccountID != value))
+				{
+					this.OnUserAccountIDChanging(value);
+					this.SendPropertyChanging();
+					this._UserAccountID = value;
+					this.SendPropertyChanged("UserAccountID");
+					this.OnUserAccountIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateDate", DbType="DateTime NOT NULL")]
+		public System.DateTime CreateDate
+		{
+			get
+			{
+				return this._CreateDate;
+			}
+			set
+			{
+				if ((this._CreateDate != value))
+				{
+					this.OnCreateDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreateDate = value;
+					this.SendPropertyChanged("CreateDate");
+					this.OnCreateDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> StartDate
+		{
+			get
+			{
+				return this._StartDate;
+			}
+			set
+			{
+				if ((this._StartDate != value))
+				{
+					this.OnStartDateChanging(value);
+					this.SendPropertyChanging();
+					this._StartDate = value;
+					this.SendPropertyChanged("StartDate");
+					this.OnStartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StopDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> StopDate
+		{
+			get
+			{
+				return this._StopDate;
+			}
+			set
+			{
+				if ((this._StopDate != value))
+				{
+					this.OnStopDateChanging(value);
+					this.SendPropertyChanging();
+					this._StopDate = value;
+					this.SendPropertyChanged("StopDate");
+					this.OnStopDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RepatCount", DbType="Int NOT NULL")]
+		public int RepatCount
+		{
+			get
+			{
+				return this._RepatCount;
+			}
+			set
+			{
+				if ((this._RepatCount != value))
+				{
+					this.OnRepatCountChanging(value);
+					this.SendPropertyChanging();
+					this._RepatCount = value;
+					this.SendPropertyChanged("RepatCount");
+					this.OnRepatCountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IntervalSec", DbType="Int NOT NULL")]
+		public int IntervalSec
+		{
+			get
+			{
+				return this._IntervalSec;
+			}
+			set
+			{
+				if ((this._IntervalSec != value))
+				{
+					this.OnIntervalSecChanging(value);
+					this.SendPropertyChanging();
+					this._IntervalSec = value;
+					this.SendPropertyChanged("IntervalSec");
+					this.OnIntervalSecChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int NOT NULL")]
+		public int Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CIS_FileBackupTask_CIS_FileXTask", Storage="_CIS_FileXTasks", ThisKey="FBTaskID", OtherKey="FBTaskID")]
+		public EntitySet<CIS_FileXTask> CIS_FileXTasks
+		{
+			get
+			{
+				return this._CIS_FileXTasks;
+			}
+			set
+			{
+				this._CIS_FileXTasks.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_CIS_FileXTasks(CIS_FileXTask entity)
+		{
+			this.SendPropertyChanging();
+			entity.CIS_FileBackupTask = this;
+		}
+		
+		private void detach_CIS_FileXTasks(CIS_FileXTask entity)
+		{
+			this.SendPropertyChanging();
+			entity.CIS_FileBackupTask = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CIS_FileBackupPath")]
+	public partial class CIS_FileBackupPath : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _FBPathID;
+		
+		private string _SourcePath;
+		
+		private string _DestinationPath;
+		
+		private string _ArchivePath;
+		
+		private bool _IsFolder;
+		
+		private int _Status;
+		
+		private EntitySet<CIS_FileXTask> _CIS_FileXTasks;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnFBPathIDChanging(System.Guid value);
+    partial void OnFBPathIDChanged();
+    partial void OnSourcePathChanging(string value);
+    partial void OnSourcePathChanged();
+    partial void OnDestinationPathChanging(string value);
+    partial void OnDestinationPathChanged();
+    partial void OnArchivePathChanging(string value);
+    partial void OnArchivePathChanged();
+    partial void OnIsFolderChanging(bool value);
+    partial void OnIsFolderChanged();
+    partial void OnStatusChanging(int value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public CIS_FileBackupPath()
+		{
+			this._CIS_FileXTasks = new EntitySet<CIS_FileXTask>(new Action<CIS_FileXTask>(this.attach_CIS_FileXTasks), new Action<CIS_FileXTask>(this.detach_CIS_FileXTasks));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FBPathID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid FBPathID
+		{
+			get
+			{
+				return this._FBPathID;
+			}
+			set
+			{
+				if ((this._FBPathID != value))
+				{
+					this.OnFBPathIDChanging(value);
+					this.SendPropertyChanging();
+					this._FBPathID = value;
+					this.SendPropertyChanged("FBPathID");
+					this.OnFBPathIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SourcePath", DbType="NVarChar(255)")]
+		public string SourcePath
+		{
+			get
+			{
+				return this._SourcePath;
+			}
+			set
+			{
+				if ((this._SourcePath != value))
+				{
+					this.OnSourcePathChanging(value);
+					this.SendPropertyChanging();
+					this._SourcePath = value;
+					this.SendPropertyChanged("SourcePath");
+					this.OnSourcePathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DestinationPath", DbType="NVarChar(255)")]
+		public string DestinationPath
+		{
+			get
+			{
+				return this._DestinationPath;
+			}
+			set
+			{
+				if ((this._DestinationPath != value))
+				{
+					this.OnDestinationPathChanging(value);
+					this.SendPropertyChanging();
+					this._DestinationPath = value;
+					this.SendPropertyChanged("DestinationPath");
+					this.OnDestinationPathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArchivePath", DbType="NVarChar(255)")]
+		public string ArchivePath
+		{
+			get
+			{
+				return this._ArchivePath;
+			}
+			set
+			{
+				if ((this._ArchivePath != value))
+				{
+					this.OnArchivePathChanging(value);
+					this.SendPropertyChanging();
+					this._ArchivePath = value;
+					this.SendPropertyChanged("ArchivePath");
+					this.OnArchivePathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsFolder", DbType="Bit NOT NULL")]
+		public bool IsFolder
+		{
+			get
+			{
+				return this._IsFolder;
+			}
+			set
+			{
+				if ((this._IsFolder != value))
+				{
+					this.OnIsFolderChanging(value);
+					this.SendPropertyChanging();
+					this._IsFolder = value;
+					this.SendPropertyChanged("IsFolder");
+					this.OnIsFolderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int NOT NULL")]
+		public int Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CIS_FileBackupPath_CIS_FileXTask", Storage="_CIS_FileXTasks", ThisKey="FBPathID", OtherKey="FBPathID")]
+		public EntitySet<CIS_FileXTask> CIS_FileXTasks
+		{
+			get
+			{
+				return this._CIS_FileXTasks;
+			}
+			set
+			{
+				this._CIS_FileXTasks.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_CIS_FileXTasks(CIS_FileXTask entity)
+		{
+			this.SendPropertyChanging();
+			entity.CIS_FileBackupPath = this;
+		}
+		
+		private void detach_CIS_FileXTasks(CIS_FileXTask entity)
+		{
+			this.SendPropertyChanging();
+			entity.CIS_FileBackupPath = null;
 		}
 	}
 }

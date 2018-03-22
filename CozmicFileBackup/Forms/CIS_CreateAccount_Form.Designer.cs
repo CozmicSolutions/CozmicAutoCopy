@@ -79,6 +79,7 @@
             this.input_Password.Name = "input_Password";
             this.input_Password.Size = new System.Drawing.Size(384, 31);
             this.input_Password.TabIndex = 3;
+            this.input_Password.Validation = CozmicFileBackup.CustomControls.DataValidation.None;
             // 
             // input_Username
             // 
@@ -89,6 +90,7 @@
             this.input_Username.Name = "input_Username";
             this.input_Username.Size = new System.Drawing.Size(384, 31);
             this.input_Username.TabIndex = 2;
+            this.input_Username.Validation = CozmicFileBackup.CustomControls.DataValidation.None;
             // 
             // input_Password_Retry
             // 
@@ -99,6 +101,7 @@
             this.input_Password_Retry.Name = "input_Password_Retry";
             this.input_Password_Retry.Size = new System.Drawing.Size(384, 31);
             this.input_Password_Retry.TabIndex = 4;
+            this.input_Password_Retry.Validation = CozmicFileBackup.CustomControls.DataValidation.None;
             // 
             // input_Key
             // 
@@ -109,6 +112,7 @@
             this.input_Key.Name = "input_Key";
             this.input_Key.Size = new System.Drawing.Size(384, 31);
             this.input_Key.TabIndex = 5;
+            this.input_Key.Validation = CozmicFileBackup.CustomControls.DataValidation.None;
             // 
             // dxErrorProvider
             // 

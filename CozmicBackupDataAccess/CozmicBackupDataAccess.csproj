@@ -60,6 +60,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Repository\FileBackupPathRepository.cs" />
+    <Compile Include="Repository\FileBackupTaskRepository.cs" />
+    <Compile Include="Repository\FileXTaskRepository.cs" />
     <Compile Include="Repository\SystemRepository.cs" />
     <Compile Include="Repository\UserAccountActivityRepository.cs" />
     <Compile Include="Repository\UserAccountRepository.cs" />

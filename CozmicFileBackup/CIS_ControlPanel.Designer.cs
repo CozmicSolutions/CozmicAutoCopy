@@ -32,18 +32,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CIS_ControlPanel));
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
-            this.barButtonNewAccount = new DevExpress.XtraBars.BarButtonItem();
             this.mainMenuAccount = new DevExpress.XtraBars.BarSubItem();
             this.barButtonItemAccountList = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemNewAccount = new DevExpress.XtraBars.BarButtonItem();
+            this.mainMenuTask = new DevExpress.XtraBars.BarSubItem();
+            this.barLargeButtonItemAddTask = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.barButtonNewAccount = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonAccountList = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.MainPanel = new DevExpress.XtraEditors.PanelControl();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.mainMenuExit = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.menuItemExit = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainPanel)).BeginInit();
             this.SuspendLayout();
@@ -63,9 +68,14 @@
             this.barButtonAccountList,
             this.mainMenuAccount,
             this.barButtonItemNewAccount,
-            this.barButtonItemAccountList});
+            this.barButtonItemAccountList,
+            this.mainMenuTask,
+            this.barButtonItem1,
+            this.barLargeButtonItemAddTask,
+            this.mainMenuExit,
+            this.menuItemExit});
             this.barManager.MainMenu = this.bar2;
-            this.barManager.MaxItemId = 5;
+            this.barManager.MaxItemId = 10;
             this.barManager.StatusBar = this.bar3;
             // 
             // bar2
@@ -75,30 +85,15 @@
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.mainMenuAccount, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.mainMenuAccount, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.mainMenuTask, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
             // 
-            // barButtonNewAccount
-            // 
-            this.barButtonNewAccount.Border = DevExpress.XtraEditors.Controls.BorderStyles.Default;
-            this.barButtonNewAccount.Caption = "Log in";
-            this.barButtonNewAccount.Description = "Log in";
-            this.barButtonNewAccount.Hint = "Log in";
-            this.barButtonNewAccount.Id = 0;
-            this.barButtonNewAccount.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
-            this.barButtonNewAccount.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonNewAccount.ImageOptions.Image")));
-            this.barButtonNewAccount.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonNewAccount.ImageOptions.LargeImage")));
-            this.barButtonNewAccount.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L));
-            this.barButtonNewAccount.Name = "barButtonNewAccount";
-            this.barButtonNewAccount.ShortcutKeyDisplayString = "CTL+L";
-            this.barButtonNewAccount.ShowItemShortcut = DevExpress.Utils.DefaultBoolean.True;
-            this.barButtonNewAccount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonLogin_ItemClick);
-            // 
             // mainMenuAccount
             // 
-            this.mainMenuAccount.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.mainMenuAccount.Border = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.mainMenuAccount.Caption = "User Accounts";
             this.mainMenuAccount.Id = 2;
             this.mainMenuAccount.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("mainMenuAccount.ImageOptions.Image")));
@@ -135,6 +130,25 @@
             this.barButtonItemNewAccount.Name = "barButtonItemNewAccount";
             this.barButtonItemNewAccount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemNewAccount_ItemClick);
             // 
+            // mainMenuTask
+            // 
+            this.mainMenuTask.Border = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.mainMenuTask.Caption = "Task";
+            this.mainMenuTask.Id = 5;
+            this.mainMenuTask.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("mainMenuTask.ImageOptions.Image")));
+            this.mainMenuTask.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("mainMenuTask.ImageOptions.LargeImage")));
+            this.mainMenuTask.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barLargeButtonItemAddTask, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.mainMenuTask.Name = "mainMenuTask";
+            // 
+            // barLargeButtonItemAddTask
+            // 
+            this.barLargeButtonItemAddTask.Caption = "Add Task";
+            this.barLargeButtonItemAddTask.Id = 7;
+            this.barLargeButtonItemAddTask.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barLargeButtonItemAddTask.ImageOptions.Image")));
+            this.barLargeButtonItemAddTask.Name = "barLargeButtonItemAddTask";
+            this.barLargeButtonItemAddTask.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barLargeButtonItemAddTask_ItemClick);
+            // 
             // bar3
             // 
             this.bar3.BarName = "Status bar";
@@ -142,6 +156,8 @@
             this.bar3.DockCol = 0;
             this.bar3.DockRow = 0;
             this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+            this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.menuItemExit, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar3.OptionsBar.AllowQuickCustomization = false;
             this.bar3.OptionsBar.DrawDragBorder = false;
             this.bar3.OptionsBar.UseWholeRow = true;
@@ -159,9 +175,9 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 539);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 515);
             this.barDockControlBottom.Manager = this.barManager;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1015, 21);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1015, 45);
             // 
             // barDockControlLeft
             // 
@@ -169,7 +185,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 44);
             this.barDockControlLeft.Manager = this.barManager;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 495);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 471);
             // 
             // barDockControlRight
             // 
@@ -177,7 +193,23 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1015, 44);
             this.barDockControlRight.Manager = this.barManager;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 495);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 471);
+            // 
+            // barButtonNewAccount
+            // 
+            this.barButtonNewAccount.Border = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            this.barButtonNewAccount.Caption = "Log in";
+            this.barButtonNewAccount.Description = "Log in";
+            this.barButtonNewAccount.Hint = "Log in";
+            this.barButtonNewAccount.Id = 0;
+            this.barButtonNewAccount.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
+            this.barButtonNewAccount.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonNewAccount.ImageOptions.Image")));
+            this.barButtonNewAccount.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonNewAccount.ImageOptions.LargeImage")));
+            this.barButtonNewAccount.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L));
+            this.barButtonNewAccount.Name = "barButtonNewAccount";
+            this.barButtonNewAccount.ShortcutKeyDisplayString = "CTL+L";
+            this.barButtonNewAccount.ShowItemShortcut = DevExpress.Utils.DefaultBoolean.True;
+            this.barButtonNewAccount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonLogin_ItemClick);
             // 
             // barButtonAccountList
             // 
@@ -187,18 +219,41 @@
             this.barButtonAccountList.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonAccountList.ImageOptions.LargeImage")));
             this.barButtonAccountList.Name = "barButtonAccountList";
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 6;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // MainPanel
             // 
             this.MainPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPanel.Location = new System.Drawing.Point(0, 44);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(1015, 495);
+            this.MainPanel.Size = new System.Drawing.Size(1015, 471);
             this.MainPanel.TabIndex = 4;
             // 
             // defaultLookAndFeel1
             // 
             this.defaultLookAndFeel1.LookAndFeel.SkinName = "Office 2010 Blue";
+            // 
+            // mainMenuExit
+            // 
+            this.mainMenuExit.Border = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.mainMenuExit.Caption = "Exit";
+            this.mainMenuExit.Id = 8;
+            this.mainMenuExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barLargeButtonItem1.ImageOptions.Image")));
+            this.mainMenuExit.Name = "mainMenuExit";
+            // 
+            // menuItemExit
+            // 
+            this.menuItemExit.Border = DevExpress.XtraEditors.Controls.BorderStyles.Default;
+            this.menuItemExit.Caption = "Exit";
+            this.menuItemExit.Id = 9;
+            this.menuItemExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.menuItemExit.Name = "menuItemExit";
+            this.menuItemExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.menuItemExit_ItemClick);
             // 
             // CIS_ControlPanel
             // 
@@ -237,5 +292,10 @@
         private DevExpress.XtraBars.BarSubItem mainMenuAccount;
         private DevExpress.XtraBars.BarButtonItem barButtonItemNewAccount;
         private DevExpress.XtraBars.BarButtonItem barButtonItemAccountList;
+        private DevExpress.XtraBars.BarSubItem mainMenuTask;
+        private DevExpress.XtraBars.BarLargeButtonItem barLargeButtonItemAddTask;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem menuItemExit;
+        private DevExpress.XtraBars.BarLargeButtonItem mainMenuExit;
     }
 }

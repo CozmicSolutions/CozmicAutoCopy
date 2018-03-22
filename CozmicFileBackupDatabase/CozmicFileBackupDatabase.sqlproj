@@ -62,6 +62,9 @@
     <Build Include="CIS_UserAccount.sql" />
     <Build Include="CIS_UserAccountActivity.sql" />
     <Build Include="CIS_System.sql" />
+    <Build Include="CIS_FileBackupTask.sql" />
+    <Build Include="CIS_FileBackupPath.sql" />
+    <Build Include="CIS_FileXTask.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CozmicFileBackupDatabase.publish.xml" />

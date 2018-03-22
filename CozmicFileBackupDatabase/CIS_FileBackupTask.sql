@@ -1,0 +1,11 @@
+﻿CREATE TABLE [dbo].[CIS_FileBackupTask]
+(
+    [FBTaskID] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT newid(), 
+    [UserAccountID] UNIQUEIDENTIFIER NOT NULL, 
+    [CreateDate] DATETIME NOT NULL DEFAULT GetDate(), 
+    [StartDate] DATETIME NULL,
+    [StopDate] DATETIME NULL,
+    [RepatCount] INT NOT NULL DEFAULT(-1),
+    [IntervalSec] INT NOT NULL DEFAULT(60),
+    [Status] INT NOT NULL DEFAULT(0),
+)

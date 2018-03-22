@@ -41,6 +41,16 @@ namespace CozmicFileBackup
         /// <summary>
         /// ShowCreateAccount
         /// </summary>
+        void ShowAddTask()
+        {
+            var form = new CIS_AddCopyTask_Form();
+            this.AddControlToMainPanel(form, true);
+          
+        }
+
+        /// <summary>
+        /// ShowCreateAccount
+        /// </summary>
         void ShowAccountList()
         {
             var form = new CIS_AccountList_Form();
@@ -88,14 +98,47 @@ namespace CozmicFileBackup
             
         }
 
+
+        #region Menu Item Events
+        /// <summary>
+        /// barButtonItemNewAccount_ItemClick
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void barButtonItemNewAccount_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.ShowCreateAccount();
         }
 
+        /// <summary>
+        /// barButtonItemAccountList_ItemClick
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void barButtonItemAccountList_ItemClick(object sender, ItemClickEventArgs e)
         {
             this.ShowAccountList();
         }
+
+        /// <summary>
+        /// barLargeButtonItemAddTask_ItemClick
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void barLargeButtonItemAddTask_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.ShowAddTask();
+        }
+
+        /// <summary>
+        /// menuItemExit_ItemClick
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void menuItemExit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.Close();
+        }
+        #endregion Menu Item Events
     }
 }

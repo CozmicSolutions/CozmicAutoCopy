@@ -7,6 +7,7 @@
       <Column Name="KeyType" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="CIS_System_CIS_UserAccount" Member="CIS_UserAccounts" ThisKey="SID" OtherKey="SID" Type="CIS_UserAccount" />
     </Type>
   </Table>
   <Table Name="dbo.CIS_UserAccountActivity" Member="CIS_UserAccountActivities">
@@ -15,6 +16,7 @@
       <Column Name="UserAccountID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="LoginDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="LogoutDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="CIS_UserAccount_CIS_UserAccountActivity" Member="CIS_UserAccount" ThisKey="UserAccountID" OtherKey="UserAccountID" Type="CIS_UserAccount" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.CIS_UserAccount" Member="CIS_UserAccounts">
@@ -26,6 +28,44 @@
       <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CIS_UserAccount_CIS_UserAccountActivity" Member="CIS_UserAccountActivities" ThisKey="UserAccountID" OtherKey="UserAccountID" Type="CIS_UserAccountActivity" />
+      <Association Name="CIS_System_CIS_UserAccount" Member="CIS_System" ThisKey="SID" OtherKey="SID" Type="CIS_System" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CIS_FileXTask" Member="CIS_FileXTasks">
+    <Type Name="CIS_FileXTask">
+      <Column Name="FXTID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FBPathID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="FBTaskID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="DestinationPath" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ArchivePath" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CIS_FileBackupPath_CIS_FileXTask" Member="CIS_FileBackupPath" ThisKey="FBPathID" OtherKey="FBPathID" Type="CIS_FileBackupPath" IsForeignKey="true" />
+      <Association Name="CIS_FileBackupTask_CIS_FileXTask" Member="CIS_FileBackupTask" ThisKey="FBTaskID" OtherKey="FBTaskID" Type="CIS_FileBackupTask" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CIS_FileBackupTask" Member="CIS_FileBackupTasks">
+    <Type Name="CIS_FileBackupTask">
+      <Column Name="FBTaskID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UserAccountID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StopDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RepatCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IntervalSec" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CIS_FileBackupTask_CIS_FileXTask" Member="CIS_FileXTasks" ThisKey="FBTaskID" OtherKey="FBTaskID" Type="CIS_FileXTask" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CIS_FileBackupPath" Member="CIS_FileBackupPaths">
+    <Type Name="CIS_FileBackupPath">
+      <Column Name="FBPathID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SourcePath" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="DestinationPath" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ArchivePath" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IsFolder" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CIS_FileBackupPath_CIS_FileXTask" Member="CIS_FileXTasks" ThisKey="FBPathID" OtherKey="FBPathID" Type="CIS_FileXTask" />
     </Type>
   </Table>
 </Database>

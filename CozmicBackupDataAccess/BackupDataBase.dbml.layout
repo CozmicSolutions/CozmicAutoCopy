@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="BackupDataBase">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9" name="BackupDataBase">
   <DataContextMoniker Name="/BackupDataBaseDataContext" />
   <nestedChildShapes>
     <classShape Id="9e5628fc-b844-4a4f-a277-205aeee33e92" absoluteBounds="0.75, 0.75, 2, 1.7708968098958331">
@@ -20,5 +20,51 @@
         <elementListCompartment Id="7c8f2181-14bc-466e-bc20-9c6de7f612a1" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="9ac4d4d4-f33e-450e-9cab-228a557830e9" absoluteBounds="3.75, 3.75, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/BackupDataBaseDataContext/CIS_FileXTask" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1b2cf9b-050d-4e0d-907d-64e6ffdc058b" absoluteBounds="3.765, 4.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="857e04b5-6599-4e79-88b3-7a91e4207f96" absoluteBounds="6.75, 0.75, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/BackupDataBaseDataContext/CIS_FileBackupTask" />
+      <nestedChildShapes>
+        <elementListCompartment Id="26b85b63-95d3-4031-9c34-4090f14f8abb" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="51e99e6d-b0c1-4278-a9f7-4972e735c90a" absoluteBounds="0.75, 6.75, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/BackupDataBaseDataContext/CIS_FileBackupPath" />
+      <nestedChildShapes>
+        <elementListCompartment Id="775f7f2f-3c8e-48cc-bcfb-8847d638cb48" absoluteBounds="0.765, 7.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.75 : 2.52089680989583); (1.75 : 3.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BackupDataBaseDataContext/CIS_System/CIS_System_CIS_UserAccount" />
+      <nodes>
+        <classShapeMoniker Id="9e5628fc-b844-4a4f-a277-205aeee33e92" />
+        <classShapeMoniker Id="f866797f-8337-4e3b-a184-70dedf2a7709" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.73159912109375); (4.75 : 7.73159912109375); (4.75 : 5.7131982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BackupDataBaseDataContext/CIS_FileBackupPath/CIS_FileBackupPath_CIS_FileXTask" />
+      <nodes>
+        <classShapeMoniker Id="51e99e6d-b0c1-4278-a9f7-4972e735c90a" />
+        <classShapeMoniker Id="9ac4d4d4-f33e-450e-9cab-228a557830e9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.75 : 3.09780110677083); (7.75 : 4.73159912109375); (5.75 : 4.73159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BackupDataBaseDataContext/CIS_FileBackupTask/CIS_FileBackupTask_CIS_FileXTask" />
+      <nodes>
+        <classShapeMoniker Id="857e04b5-6599-4e79-88b3-7a91e4207f96" />
+        <classShapeMoniker Id="9ac4d4d4-f33e-450e-9cab-228a557830e9" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.75); (3.125 : 3.375); (3.125 : 1.53929768880208); (3.75 : 1.53929768880208)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BackupDataBaseDataContext/CIS_UserAccount/CIS_UserAccount_CIS_UserAccountActivity" />
+      <nodes>
+        <classShapeMoniker Id="f866797f-8337-4e3b-a184-70dedf2a7709" />
+        <classShapeMoniker Id="6f76e958-4923-44cf-b612-9e39943114ba" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
