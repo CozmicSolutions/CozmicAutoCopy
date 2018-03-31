@@ -95,6 +95,6 @@
 
         #endregion
         private DevExpress.XtraEditors.DXErrorProvider.DXErrorProvider dxErrorProvider;
-        private CustomControls.CIS_DataList CIS_DataList;
+        private CustomControls.CIS_DataGrid CIS_DataList;
     }
 }

@@ -35,14 +35,14 @@
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v17.2" />
     <Reference Include="DevExpress.Data.v17.2" />
-    <Reference Include="DevExpress.Images.v17.2, Version=17.2.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v17.2" />
     <Reference Include="DevExpress.XtraBars.v17.2" />
     <Reference Include="DevExpress.XtraEditors.v17.2" />
-    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v17.2" />
     <Reference Include="DevExpress.Printing.v17.2.Core" />
-    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="SqlDataAccess">
       <HintPath>..\ExternalLib\SqlDataAccess.dll</HintPath>
     </Reference>
@@ -65,17 +65,17 @@
     <Compile Include="CIS_ControlPanel.Designer.cs">
       <DependentUpon>CIS_ControlPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\CIS_DataList.cs">
+    <Compile Include="CustomControls\CheckEdit\CIS_CheckBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\CIS_DataList.Designer.cs">
-      <DependentUpon>CIS_DataList.cs</DependentUpon>
+    <Compile Include="CustomControls\CheckEdit\CIS_CheckBox.Designer.cs">
+      <DependentUpon>CIS_CheckBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\CIS_BrowsePath.cs">
+    <Compile Include="CustomControls\CheckEdit\CIS_CheckBoxData.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\CIS_BrowsePath.Designer.cs">
-      <DependentUpon>CIS_BrowsePath.cs</DependentUpon>
+    <Compile Include="CustomControls\CheckEdit\CIS_CheckBoxData.Designer.cs">
+      <DependentUpon>CIS_CheckBoxData.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\CIS_LogData.cs">
       <SubType>UserControl</SubType>
@@ -83,10 +83,34 @@
     <Compile Include="CustomControls\CIS_LogData.Designer.cs">
       <DependentUpon>CIS_LogData.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\CIS_InputData.cs">
+    <Compile Include="CustomControls\ComboBox\CIS_ComboBoxData.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CustomControls\CIS_InputData.Designer.cs">
+    <Compile Include="CustomControls\ComboBox\CIS_ComboBoxData.Designer.cs">
+      <DependentUpon>CIS_ComboBoxData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\DataSource\CIS_DataGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\DataSource\CIS_DataGrid.Designer.cs">
+      <DependentUpon>CIS_DataGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\DateTime\CIS_DateTimeData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\DateTime\CIS_DateTimeData.Designer.cs">
+      <DependentUpon>CIS_DateTimeData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\Path\CIS_BrowsePath.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\Path\CIS_BrowsePath.Designer.cs">
+      <DependentUpon>CIS_BrowsePath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\TextEdit\CIS_InputData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControls\TextEdit\CIS_InputData.Designer.cs">
       <DependentUpon>CIS_InputData.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\CIS_Base_Form.cs">
@@ -124,16 +148,28 @@
     <EmbeddedResource Include="CIS_ControlPanel.resx">
       <DependentUpon>CIS_ControlPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\CIS_DataList.resx">
-      <DependentUpon>CIS_DataList.cs</DependentUpon>
+    <EmbeddedResource Include="CustomControls\CheckEdit\CIS_CheckBox.resx">
+      <DependentUpon>CIS_CheckBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\CIS_BrowsePath.resx">
-      <DependentUpon>CIS_BrowsePath.cs</DependentUpon>
+    <EmbeddedResource Include="CustomControls\CheckEdit\CIS_CheckBoxData.resx">
+      <DependentUpon>CIS_CheckBoxData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\CIS_LogData.resx">
       <DependentUpon>CIS_LogData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomControls\CIS_InputData.resx">
+    <EmbeddedResource Include="CustomControls\ComboBox\CIS_ComboBoxData.resx">
+      <DependentUpon>CIS_ComboBoxData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\DataSource\CIS_DataGrid.resx">
+      <DependentUpon>CIS_DataGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\DateTime\CIS_DateTimeData.resx">
+      <DependentUpon>CIS_DateTimeData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\Path\CIS_BrowsePath.resx">
+      <DependentUpon>CIS_BrowsePath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\TextEdit\CIS_InputData.resx">
       <DependentUpon>CIS_InputData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CIS_Base_Form.resx">
